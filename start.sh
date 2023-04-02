@@ -1,0 +1,1 @@
+python3 webui.py --device-id 1 --share

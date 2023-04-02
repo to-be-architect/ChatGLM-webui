@@ -38,20 +38,23 @@ def create_ui():
     reload_javascript()
 
     with gr.Blocks(css=css, analytics_enabled=False) as chat_interface:
-        prompt = "输入你的内容..."
+        prompt = "MOSS-1916,请输入你的内容..."
         with gr.Row():
             with gr.Column(scale=3):
-                gr.Markdown("""<h2><center>ChatGLM WebUI</center></h2>""")
+                gr.Markdown("""<h2><center> ChatGLM / By 禅与计算机程序设计艺术 </center></h2>""")
                 with gr.Row():
                     with gr.Column(variant="panel"):
                         with gr.Row():
                             max_length = gr.Slider(minimum=4, maximum=4096, step=4, label='Max Length', value=2048)
                             top_p = gr.Slider(minimum=0.01, maximum=1.0, step=0.01, label='Top P', value=0.7)
                         with gr.Row():
-                            temperature = gr.Slider(minimum=0.01, maximum=1.0, step=0.01, label='Temperature', value=0.95)
+                            temperature = gr.Slider(minimum=0.01, maximum=1.0, step=0.01, label='Temperature',
+                                                    value=0.95)
 
                         with gr.Row():
-                            max_rounds = gr.Slider(minimum=1, maximum=100, step=1, label="最大对话轮数（调小可以显著改善爆显存，但是会丢失上下文）", value=20)
+                            max_rounds = gr.Slider(minimum=1, maximum=100, step=1,
+                                                   label="最大对话轮数（调小可以显著改善爆显存，但是会丢失上下文）",
+                                                   value=10)
                             apply_max_rounds = gr.Button("✔", elem_id="del-btn")
 
                 with gr.Row():

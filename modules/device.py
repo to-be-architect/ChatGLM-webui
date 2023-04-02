@@ -7,7 +7,12 @@ cuda_available = torch.cuda.is_available()
 
 def get_cuda_device():
     if options.cmd_opts.device_id is not None:
-        return f"cuda:{options.cmd_opts.device_id}"
+        print("options.cmd_opts.device_id=",options.cmd_opts.device_id)
+
+        cuda_device = f"cuda:{options.cmd_opts.device_id}"
+        print(cuda_device)
+
+        return cuda_device
 
     return "cuda"
 

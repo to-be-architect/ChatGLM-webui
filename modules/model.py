@@ -1,6 +1,6 @@
 from typing import Optional, List, Tuple
 
-from modules.device import torch_gc
+from modules.device import torch_gc, device
 from modules.options import cmd_opts
 
 tokenizer = None
@@ -13,11 +13,11 @@ def prepare_model():
         model = model.float()
     else:
         if cmd_opts.precision == "fp16":
-            model = model.half().cuda()
+            model = model.half().cuda(device=device)
         elif cmd_opts.precision == "int4":
-            model = model.half().quantize(4).cuda()
+            model = model.half().quantize(4).cuda(device=device)
         elif cmd_opts.precision == "int8":
-            model = model.half().quantize(8).cuda()
+            model = model.half().quantize(8).cuda(device=device)
 
     model = model.eval()
 

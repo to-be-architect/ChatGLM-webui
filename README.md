@@ -23,10 +23,12 @@ bash install.sh
 ## Run
 
 ```shell
-python webui.py
+python3 webui.py
 ```
 
 ### Args
+
+The default args in options.py
 
 `--model-path`: specify model path. If this parameter is not specified manually, the default value is `THUDM/chatglm-6b`. Transformers will automatically download model from huggingface.
 
